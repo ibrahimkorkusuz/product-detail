@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>DigiFist Case</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700&subset=latin-ext" rel="stylesheet">
+    </head>
+    <style>
+        @font-face {
+            font-family: 'Avenir';
+            src: url(./fonts/Avenir.ttc);
+        }
+        @font-face {
+            font-family: 'ITCAvant Bold';
+            src: url(./fonts/ITCAvantGardePro-Bold.otf);
+        }
+        body{
+            color: #000000;
+        }
+        .col-md-6 {
+            padding: 0 ;
+        }
+        .content-head{
+            margin:6rem 6.62rem 0 7.5rem;
+        }
+
+        .content-head a {
+            font-weight: 900;
+            font-size: 12.8px;
+            text-decoration: none;
+            color:black;
+            border-bottom: 1px solid black;
+            font-family: 'Avenir';
+            text-transform: capitalize;
+        }
+
+        .btn-shop {
+            width: 9.375rem;
+            padding: 0 0 5px;
+        }
+
+        .title{
+            font-size: 32px;
+            font-weight: 700;
+            font-family: 'ITCAvant Bold';
+            color: #000000;
+        }
+
+        .description {
+            font-weight: 400;
+            color:#666666;
+            font-family: 'Avenir';
+            font-size: 16px;
+        }
+
+        @media (max-width: 576px) { 
+            .content-head{
+                margin:0 !important;
+            }
+
+            .btn-shop {
+                margin-left: 10px;
+            }
+
+            .description {
+                display: none;
+            }
+
+            .title, .content-head a{
+                color:white;
+                border-color: white;
+            }
+
+            .title {
+                font-size: 20px;
+                margin-left: 10px;
+            }
+
+            .content-head {
+                margin-top: -18rem !important;
+                margin-left: 2rem !important;
+            }
+
+            .col-md-6 {
+                filter: brightness(0.9);
+            }
+        }
+
+        #slider-text{
+            padding-top: 40px;
+            display: block;
+        }
+        #slider-text .col-md-6{
+            overflow: hidden;
+        }
+
+        #slider-text h2 {
+            font-weight: 400;
+            font-size: 30px;
+            letter-spacing: 3px;
+            margin: 30px auto;
+            padding-left: 40px;
+        }
+        #slider-text h2::after{
+            border-top: 2px solid #c7c7c7;
+            content: "";
+            position: absolute;
+            bottom: 35px;
+            width: 100%;
+        }
+        .product-title, .product-price {
+            font-size: 12.8px;
+            font-family: 'Avenir';
+        }
+        .product-bottom {
+            display: flex;
+            align-items: center;
+            justify-content:flex-start
+        }
+        
+        button {
+            border-radius: 100%;
+            border: none;
+            height: 12px;
+        }
+
+        button.active {
+            border: 1px solid black;
+            height: 14px;
+        }
+
+        a.left.carousel-control {
+            display: none;
+        }
+        #itemslider h4{
+            font-weight: 400;
+            margin: 10px auto 3px;
+        }
+        #itemslider h5{
+            margin: 3px auto 2px;
+            display: flex;
+            flex: 1;
+            font-weight: bold;
+        }
+
+        #slider-control img {
+            background: white;
+            margin-top: 12rem;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-showmanymoveone .carousel-control {
+            width: 5%;
+            background-image: none;
+        }
+        .carousel-showmanymoveone .carousel-control.left {
+            margin-left: 5px;
+        }
+        .carousel-showmanymoveone .carousel-control.right {
+            margin-right: 5px;
+        }
+        .carousel-showmanymoveone .cloneditem-1,
+        .carousel-showmanymoveone .cloneditem-2,
+        .carousel-showmanymoveone .cloneditem-3,
+        .carousel-showmanymoveone .cloneditem-4,
+        .carousel-showmanymoveone .cloneditem-5 {
+            display: none;
+        }
+        @media all and (min-width: 768px) {
+        .carousel {
+            margin-left: 4rem;
+        }
+        .carousel-showmanymoveone .carousel-inner > .active.left,
+        .carousel-showmanymoveone .carousel-inner > .prev {
+            left: -50%;
+        }
+        .carousel-showmanymoveone .carousel-inner > .active.right,
+        .carousel-showmanymoveone .carousel-inner > .next {
+            left: 50%;
+        }
+        .carousel-showmanymoveone .carousel-inner > .left,
+        .carousel-showmanymoveone .carousel-inner > .prev.right,
+        .carousel-showmanymoveone .carousel-inner > .active {
+            left: 0;
+        }
+        .carousel-showmanymoveone .carousel-inner .cloneditem-1 {
+            display: block;
+        }
+        }
+        @media all and (min-width: 768px) and (transform-3d), all and (min-width: 768px) and (-webkit-transform-3d) {
+        .carousel-showmanymoveone .carousel-inner > .item.active.right,
+        .carousel-showmanymoveone .carousel-inner > .item.next {
+            -webkit-transform: translate3d(50%, 0, 0);
+            transform: translate3d(50%, 0, 0);
+            left: 0;
+        }
+        .carousel-showmanymoveone .carousel-inner > .item.active.left,
+        .carousel-showmanymoveone .carousel-inner > .item.prev {
+            -webkit-transform: translate3d(-50%, 0, 0);
+            transform: translate3d(-50%, 0, 0);
+            left: 0;
+        }
+        .carousel-showmanymoveone .carousel-inner > .item.left,
+        .carousel-showmanymoveone .carousel-inner > .item.prev.right,
+        .carousel-showmanymoveone .carousel-inner > .item.active {
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+            left: 0;
+        }
+        }
+        @media all and (min-width: 992px) {
+        .carousel-showmanymoveone .carousel-inner > .active.left,
+        .carousel-showmanymoveone .carousel-inner > .prev {
+            left: -16.666%;
+        }
+        .carousel-showmanymoveone .carousel-inner > .active.right,
+        .carousel-showmanymoveone .carousel-inner > .next {
+            left: 16.666%;
+        }
+        .carousel-showmanymoveone .carousel-inner > .left,
+        .carousel-showmanymoveone .carousel-inner > .prev.right,
+        .carousel-showmanymoveone .carousel-inner > .active {
+            left: 0;
+        }
+        .carousel-showmanymoveone .carousel-inner .cloneditem-2,
+        .carousel-showmanymoveone .carousel-inner .cloneditem-3,
+        .carousel-showmanymoveone .carousel-inner .cloneditem-4,
+        .carousel-showmanymoveone .carousel-inner .cloneditem-5,
+        .carousel-showmanymoveone .carousel-inner .cloneditem-6  {
+            display: block;
+        }
+        }
+
+        @media all and (min-width: 992px) and (transform-3d), all and (min-width: 992px) and (-webkit-transform-3d) {
+        .carousel-showmanymoveone .carousel-inner > .item.active.right,
+        .carousel-showmanymoveone .carousel-inner > .item.next {
+            -webkit-transform: translate3d(16.666%, 0, 0);
+            transform: translate3d(16.666%, 0, 0);
+            left: 0;
+        }
+        .carousel-showmanymoveone .carousel-inner > .item.active.left,
+        .carousel-showmanymoveone .carousel-inner > .item.prev {
+            -webkit-transform: translate3d(-16.666%, 0, 0);
+            transform: translate3d(-16.666%, 0, 0);
+            left: 0;
+        }
+        .carousel-showmanymoveone .carousel-inner > .item.left,
+        .carousel-showmanymoveone .carousel-inner > .item.prev.right,
+        .carousel-showmanymoveone .carousel-inner > .item.active {
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+            left: 0;
+        }
+        }
+    </style>
+  <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 col-sm-12 content-left">
+                    <img alt="bg" width="100%" src="./image/bg.png" />
+                </div>
+                <div class="col-md-6 col-sm-12 content-right">
+                    <div class="row content-head">
+                        <h4 class="title">Everyday items, we have <br>something to suit every<br> occasion.</h4>
+                        <p class="description">At suspendisse augue lectus arcu, accumsan ut sit posuere<br> vitae sit tincidunt semper eu proin leo gravida cursus.</p>
+                        <a class="btn-shop" href="#">Shop all everyday items</a>
+
+                        <!--Item slider text-->
+                    <div class="row" id="slider-text">
+                        <div class="col-md-6" >
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- Item slider-->
+                    <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="carousel carousel-showmanymoveone slide" id="itemslider">
+                            <div class="carousel-inner">
+
+                            <div class="item active">
+                                <div class="col-xs-12 col-sm-6 col-md-4">
+                                <a href="#"><img src="./image/green.png" class="img-responsive center-block"></a>
+                                <h4 class="product-title">365 Signature Hoodie</h4>
+                                    <div class="product-bottom">
+                                        <h5 class="product-price">€33.95</h5>
+                                        <h6 class="product-color">
+                                            <button class="active" style="background:#c4c4c4;"></button>
+                                            <button style="background:#CC9999;"></button>
+                                            <button style="background:#CB99CC;"></button>
+                                            <button style="background:#A6CC99;"></button>
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="col-xs-12 col-sm-6 col-md-4">
+                                <a href="#"><img src="./image/yellow.png" class="img-responsive center-block"></a>
+                                <h4 class="product-title">Organic Skinny High Waist Jeans</h4>
+                                    <div class="product-bottom">
+                                        <h5 class="product-price">€33.95</h5>
+                                        <h6 class="product-color">
+                                            <button class="active" style="background:#c4c4c4;"></button>
+                                            <button style="background:#CC9999;"></button>
+                                            <button style="background:#CB99CC;"></button>
+                                            <button style="background:#A6CC99;"></button>
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="col-xs-12 col-sm-6 col-md-4">
+                                <a href="#"><img src="./image/blue.png" class="img-responsive center-block"></a>
+                                <h4 class="product-title">Organic Skinny High Waist Jeans</h4>
+                                    <div class="product-bottom">
+                                        <h5 class="product-price">€33.95</h5>
+                                        <h6 class="product-color">
+                                            <button class="active" style="background:#c4c4c4;"></button>
+                                            <button style="background:#CC9999;"></button>
+                                            <button style="background:#CB99CC;"></button>
+                                            <button style="background:#A6CC99;"></button>
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+
+                            <div id="slider-control">
+                            <a class="left carousel-control" href="#itemslider" data-slide="prev"><img src="https://cdn0.iconfinder.com/data/icons/website-kit-2/512/icon_402-512.png" alt="Left" class="img-responsive"></a>
+                            <a class="right carousel-control" href="#itemslider" data-slide="next"><img src="http://pixsector.com/cache/81183b13/avcc910c4ee5888b858fe.png" alt="Right" class="img-responsive"></a>
+                        </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    <!-- Item slider end-->
+                    
+                    </div>
+                </div>
+            </div>
+
+        <script type="application/javascript">
+            $(document).ready(function(){
+
+            /* $('#itemslider').carousel({ interval: 3000 }); */
+
+            $('.carousel-showmanymoveone .item').each(function(){
+            var itemToClone = $(this);
+
+            for (var i=1;i<3;i++) {
+            itemToClone = itemToClone.next();
+
+            if (!itemToClone.length) {
+            itemToClone = $(this).siblings(':first');
+            }
+
+            itemToClone.children(':first-child').clone()
+                .addClass("cloneditem-"+(i))
+                .appendTo($(this));
+            }
+            });
+            });
+
+        </script>
+  </body>
+</html>
